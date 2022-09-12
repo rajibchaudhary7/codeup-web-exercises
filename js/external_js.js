@@ -55,4 +55,4 @@ offerHasNotExpired = prompt("Has the offer not expired?");
 let isAPremiumMember = true;
 isAPremiumMember = prompt(" Is the person a premium member?");
 let offerApplied = ((buysMoreThanTwoItems && offerHasNotExpired) || isAPremiumMember);
-alert("The premium offer can be applied to this person " + offerApplied)
+alert("The premium offer can be applied to this person " + offerApplied);
