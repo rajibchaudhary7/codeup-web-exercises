@@ -1,4 +1,5 @@
 "use strict";
+
 console.log("Hello from external javascript");
 alert('Welcome to my Website!');
 let userInput = prompt("What is your favorite color?");
@@ -34,7 +35,7 @@ faceBookHours = prompt("How many hours did you work for Facebook?");
 let amazonHours;
 amazonHours = prompt("How many hours did you work for Amazon?");
 let totalWeeklyPayment = (Number(googleHourlyPay * googleHours) + Number(faceBookHourlyPay * faceBookHours) +
-Number(amazonHourlyPay * amazonHours));
+    Number(amazonHourlyPay * amazonHours));
 alert("You will receive a payment of $" + totalWeeklyPayment + " for this week.")
 
 //A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with
@@ -54,5 +55,5 @@ let offerHasNotExpired = true;
 offerHasNotExpired = prompt("Has the offer not expired?");
 let isAPremiumMember = true;
 isAPremiumMember = prompt(" Is the person a premium member?");
-let offerApplied = ((buysMoreThanTwoItems && offerHasNotExpired) || isAPremiumMember);
+let offerApplied = (isAPremiumMember || (buysMoreThanTwoItems && offerHasNotExpired));
 alert("The premium offer can be applied to this person " + offerApplied);
