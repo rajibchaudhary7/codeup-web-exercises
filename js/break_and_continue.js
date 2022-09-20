@@ -2,16 +2,7 @@
 // if they enter invalid input.
 // Use a loop and the continue statement to output all the odd numbers between 1 and 50, except
 // for the number the user entered.
-// var oddNumber = parseInt(prompt("Enter an odd number between 1 and 50 ?"))
-// var checkNumber = (oddNumber % 2)
-// for (let i = 1; i < 3; i++) {
-//     if (checkNumber !== 0) {
-//         alert(oddNumber + " is an odd number.");
-//         break;
-//     } else {
-//         (alert(oddNumber + " is an invalid input"));
-//     }
-// }
+
 var oddNumber = 0;
 while (true) {
     oddNumber = parseInt(prompt("Enter an odd number between 1 and 50 ?"));

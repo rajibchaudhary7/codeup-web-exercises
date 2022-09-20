@@ -39,16 +39,6 @@ while (i <= 16) {
 // Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 // Yay! I sold them all! // If there are no more cones
 
-// for (let i = 0; i < 1; i++) {
-//     var allCones = Math.floor(Math.random() * 50) + 50;
-//     console.log(allCones + " is the total amount of cones to sell.")
-//     for (let i = 0; i < 1; i++) {
-//         var soldCones = Math.floor(Math.random() * 5) + 1;
-//        do {
-//            console.log("Cannot sell you " + (soldCones + 1), + " I only have soldCones.");
-//        } while ( i < soldCones)
-//     }
-// }
 let allCones = Math.floor(Math.random() * 100) + 50;
 do { let soldCones = Math.floor(Math.random() * 5) + 1;
     if(allCones < soldCones) {
