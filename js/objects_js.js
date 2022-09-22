@@ -80,33 +80,32 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
     var books = [
-        {Title: "Anna Karenina",
-            Author:{
+        {title: "Anna Karenina",
+            author:{
             firstname: "Leo",
                 lastname: "Tolstoy"
             }},
-        {Title: "Madame Bovary", Author:{
+        {title: "Madame Bovary", author:{
             firstname: "Gustav",
                 lastname: "Flaubert"
             }},
-        {Title: "Lolita", Author:{
+        {title: "Lolita", author:{
             firstname: "Vladimir",
                 lastname: "Nabokov"
             }},
-        {Title: "Hamlet", Author:{
+        {title: "Hamlet", author:{
             firstname: "William",
                 lastname: "Shakespeare"
             }},
-        {Title: "In Search of Lost Time", Author:{
+        {title: "In Search of Lost Time", author:{
             firstname: "Marcel",
                 lastname: "Proust"
             }}
     ];
     books.forEach(function(book) {
-        console.log(book.Title + " is the title of this book");
-        console.log("Author's firstname: " + book.Author.firstname);
-        console.log("Author's lastname: " + book.Author.lastname );
-
+            console.log(book.title + " is the title of this book");
+            console.log("Author's firstname: " + book.author.firstname);
+            console.log("Author's lastname: " + book.author.lastname );
     });
 
 
@@ -136,8 +135,8 @@
      */
     for (let i = 1; i <= 5; i++) {
         console.log("Book # " + i);
-        console.log("Title: " + books[i-1].Title);
-        console.log("Author: " + books[i-1].Author.firstname + " " + books[i-1].Author.lastname)
+        console.log("Title: " + books[i-1].title);
+        console.log("Author: " + books[i-1].author.firstname + " " + books[i-1].author.lastname)
     }
 
     /**
@@ -146,14 +145,36 @@
      *   name and returns a book object with the properties described
      *   previously. Refactor your code that creates the books array to instead
      *   use your function.
-     * - Create a function named `showBookInfo` that accepts a book object and
-     *   outputs the information described above. Refactor your loop to use your
-     *   `showBookInfo` function.
      */
-    function createBook (Title, Author) {
-        let books = Title
-        return books;
 
+    let booksArray = [];
+    function createBook (tit, fname, lname) {
+        let newBook = {
+            title: tit,
+            author: {
+                firstname: fname,
+                lastname: lname
+            }
+        }
+        booksArray.push(newBook);
     }
-createBook();
+    console.log(booksArray);
+    createBook ("Anna Karenina", "Leo", "Tolstoy");
+    createBook("Madame Bovary", "Gustav", "Flaubert");
+    createBook("Lolita", "Vladimir", "Nabokov");
+    createBook("Hamlet", "William", "Shakespeare");
+    createBook("In Search of Lost Time", "Marcel", "Proust");
+    /**
+    * - Create a function named `showBookInfo` that accepts a book object and
+    *   outputs the information described above. Refactor your loop to use your
+    *   `showBookInfo` function.
+    */
+    function showBookInfo() {
+        booksArray.forEach(function (b, index) {
+            console.log("Book # " + (index + 1));
+            console.log("Title: " + b.title);
+            console.log("Author: " + b.author.firstname + " " + b.author.lastname)
+        })
+    }
+    showBookInfo(booksArray);
 })();
