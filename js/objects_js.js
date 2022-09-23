@@ -17,6 +17,7 @@
     };
     console.log(person.firstname);
     console.log(person.lastname);
+    console.log(person);
 
 
     /**
@@ -29,7 +30,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
     person.sayHello = function() {
-        return "How are you doing " + person.firstname + " " + person.lastname + "?";
+        return "Hello from " + this.firstname + " " + this.lastname + "!";
     };
     console.log(person.sayHello());
 
