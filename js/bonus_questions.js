@@ -100,14 +100,41 @@ console.log(calculateTax(25, 8));
 
 // Write a function to return an array of only the Even numbers from an array with the numbers 1 through 10
 // example input: [1,2,3,4,5] expected output: [2,4]
-var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-for (let x = 1, x <= 5, x++) {
-    console.log(myArray[x]);
+// var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// let newArray = [];
+// for (let x = 1; x <= 10; x++) {
+//     if (x % 2 !== 0) {
+//        newArray.push(myArray[x]);
+//     }
+// }
+// console.log(newArray);
 
-}
+//alternate method #1
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//
+// const even = arr.filter(number => {
+//     return number % 2 === 0;
+// });
+//
+// console.log(even);
+
+//alternate method #2
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//
+// const even = [];
+//
+// arr.forEach(function(number){
+//     if (number % 2 === 0) {
+//         even.push(number);
+//     }
+// });
+//
+// console.log(even);
+
 
 // Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’
 // and value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
 //     example input: [{ city: 'Tokyo', country: 'Japan' }, { city: 'Bangkok', country: 'Thailand' }], 'Asia'
 // expected output: [{ city: 'Tokyo', country: 'Japan', continent: 'Asia' }, { city: 'Bangkok', country: 'Thailand',
 //     continent: 'Asia' }]
+function createObject
