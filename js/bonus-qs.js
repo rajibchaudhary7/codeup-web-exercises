@@ -137,4 +137,6 @@ console.log(calculateTax(25, 8));
 //     example input: [{ city: 'Tokyo', country: 'Japan' }, { city: 'Bangkok', country: 'Thailand' }], 'Asia'
 // expected output: [{ city: 'Tokyo', country: 'Japan', continent: 'Asia' }, { city: 'Bangkok', country: 'Thailand',
 //     continent: 'Asia' }]
-function createObject
+function createObject(){
+
+}
