@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+}
+
+header {
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #d5dcda;
+    background-image:url(../images/pexels-maria-loznevaya-13328857.jpg);
+}
+
+ul li {
+    list-style: circle;
+}
+
+html * {
+    font-family: Arial;
+}
+
+table, td, tr {
+    border: 1px solid;
+    padding: 8px;
+    font-size: 20px;
+}
+
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
