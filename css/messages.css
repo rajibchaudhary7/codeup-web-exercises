@@ -6,24 +6,40 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 
+:root {
+    --main-bg-info: #9cade0;
+    --main-text-info: #484191;
+    --main-bg-success: #caf8ca;
+    --main-text-success: #2b7644;
+    --main-bg-warning: #f3e282;
+    --main-text-warning: #8a7610;
+    --main-bg-error: #e8bbc2;
+    --main-text-error: #831a32;
+}
+
 body div {
     margin: 10px;
     border: 1px solid;
     padding: 5px;
+    border-radius: 4px;
 }
 
 .message-info {
-    background-color: #9cade0;
+    color: var(--main-text-info);
+    background-color: var(--main-bg-info);
 }
 
 .message-success {
-    background-color: #caf8ca;
+    color: var(--main-text-success);
+    background-color: var(--main-bg-success);
 }
 
 .message-warning {
-    background-color: #f3e282;
+    color: var(--main-text-warning);
+    background-color: var(--main-bg-warning);
 }
 
 .message-error {
-    background-color: #e8bbc2;
+    color: var(--main-text-error);
+    background-color: var(--main-bg-error);
 }
