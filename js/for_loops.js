@@ -39,7 +39,7 @@ for (let i = 0; i < 10; i++) {
 // 7777777
 // 88888888
 // 999999999
-let string = 0;
+let string = "";
 for (let i = 1; i <= 9; i++) {
     for (let j = 1; j <= i; j++) {
         string += i;
