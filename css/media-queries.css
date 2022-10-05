@@ -1,0 +1,40 @@
+@media screen and (max-width:390px) {
+    body {
+        background: white;
+        margin: 16px;
+    }
+    .alert-info {
+        background-color: #ccffff;
+        padding: 1em;
+        border: #cce8e8;
+    }
+    .alert-info a {
+        color: black;
+    }
+    h1 {
+        text-align: center;
+    }
+    li {
+        background: #cccccc;
+        margin-bottom: 10px;
+        padding: 15px;
+    }
+    .nav-links {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-left: -40px;
+    }
+    a {
+        display: flex;
+        color: blue;
+        justify-content: center;
+    }
+    .header-img img{
+        width: 339px;
+        height: 224px;
+        margin-left: 3px;
+    }
+
+}
