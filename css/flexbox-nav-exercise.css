@@ -17,20 +17,15 @@ nav{
     justify-content: space-between;
 
 }
-.flex-container div{
-    width: 33.3%;
-    height: 50px;
-    position: relative;
-
-}
 .flex-container div:nth-child(1){
+    width: 20%;
     align-items: center;
-    margin: 0 auto;
+    margin-left: 10px;
     display: flex;
     justify-content: space-between;
-
 }
 .flex-container div:nth-child(2){
+    width: 60%;
     font-size: 3em;
     padding-top: .2em;
     padding-bottom: .2em;
@@ -40,23 +35,15 @@ nav{
 }
 
 .flex-container div:nth-child(3){
+    width: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-left: 20px;
 }
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-li{
-    padding-right: 10px;
-    display: inline-block;
-
-}
 a{
     color: black;
+    font-weight: bold;
     text-decoration: none;
     display: inline-block;
 }
