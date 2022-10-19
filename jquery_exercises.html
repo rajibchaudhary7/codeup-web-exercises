@@ -5,12 +5,24 @@
     <title>JQuery exercises</title>
 </head>
 <body>
-
+<h1 id="one">Getting into JQuery Exercises</h1>
+<div id="two">
+    <p id="three">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur consequuntur cupiditate
+        deleniti dolor error esse fugiat illo maiores modi nam natus nisi nulla, optio pariatur, quia sed sit.</p>
+        <ul id="one">Overview of what we have learnt:
+            <li>javaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Bootstrap</li>
+        </ul>
+</div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>$(function() {
     alert( 'The DOM has finished loading!' );
     });
+    var contents = $('#one').html();
+    alert(contents);
     </script>
 </body>
 </html>
