@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>JQuery exercises</title>
 </head>
-<body>
+<body id="font-change">
 <h1 id="one">Getting into JQuery Exercises</h1>
 <div id="two" class="codeup">
     <p id="three" class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores aspernatur consequuntur cupiditate
@@ -18,8 +18,31 @@
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script>$("h1, p, li").css("background-color","highlight")
-    alert($("h1").html());
+    <script>
+        $("h1").click(function() {
+            $(this).css("background-color","blue")
+        });
+    // alert($("h1").html());
+    // $("#font-change").dblclick(function() {
+    //     $('body').css("font-size", "32px")
+    // });
+    $('#two').dblclick(function() {
+        $(this).css('font-size', "18px")
+    });
+    // $("li").hover(function() {
+    //     $(this).css('color','red')
+    // },
+    //     function() {
+    //     $(this).css('color', 'black');
+    //     }
+    // );
+        $('li').mouseenter(function() {
+            $(this).css('color', 'red')
+        }),
+        $('li').mouseleave(function() {
+            $(this).css('color', 'black')
+        });
+
 
 
     </script>
