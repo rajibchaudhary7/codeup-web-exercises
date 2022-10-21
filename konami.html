@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <style>
+        .img-fluid {
+            margin-left: 200px;
+            margin-top: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Konami Code</h1>
+<img class="img-fluid" src="images/win-clip-art.webp">
+
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    "use strict";
+
+    var a = [];
+    var b = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    var audio = new Audio('audios/animated-applause.wav')
+    $(document).keyup(function(event) {
+        a.push(event.keyCode);
+        if(event.keyCode === 13) {
+            a.every((val, index) => val === b[index])
+            alert("You have added 30 lives!")
+            $('body').css('background-color', 'green');
+            audio.play();
+            $('*').css('background-image', 'url(images/win-clip-art.webp)');
+            $('.img-fluid').show();
+        }
+        console.log(event.keyCode);
+    });
+
+
+
+
+</script>
+</body>
+</html>
