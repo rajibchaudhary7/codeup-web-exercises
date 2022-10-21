@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Attributes And CSS Exercises</title>
+<!--  <link rel="stylesheet" href="css/box_css.css">-->
+  <style>
+    .invisible {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
-$END$
+<center><a href="#" id="toggler">Click Here</a></center>
+<p>States I have visited and what I have known:</p>
+
+<dl>
+  <dt>Montana</dt>
+  <dd class="invisible">Sparsely populated and snowy most of the time.</dd>
+
+  <dt>Massachusetts</dt>
+  <dd class="invisible">A state, rich in culture, occupied mostly by colleges and hospitals.</dd>
+
+  <dt>New Hampshire</dt>
+  <dd class="invisible">Very beautiful landscapes and sparsely populated with retirees.</dd>
+
+  <dt>Maine</dt>
+  <dd class="invisible">Loved to hike there. Beautiful lakes and hiking sites.</dd>
+
+  <dt>Vermont</dt>
+  <dd class="invisible">A beautiful suburb with scenic mountains.</dd>
+
+  <dt>Louisiana</dt>
+  <dd class="invisible">Inexpensive living and affordable colleges.</dd>
+
+  <dt>Texas</dt>
+  <dd class="invisible">A Huge State with very diverse group of population from all around the world.</dd>
+
+  <dt>New York</dt>
+  <dd class="invisible">Hub of the economy.</dd>
+
+  <dt>Tennessee</dt>
+  <dd class="invisible">Beautiful weather.</dd>
+
+  <dt>Florida</dt>
+  <dd class="invisible">Beautiful beaches and warm weather.</dd>
+</dl>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+<script>
+  $('#toggler').click(function(){$('dd').toggleClass("invisible")});
+  $('dt').click(function(){$(this).css('background-color', 'highlight')})
+</script>
 </body>
 </html>
