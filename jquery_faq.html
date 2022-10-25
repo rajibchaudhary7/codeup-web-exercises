@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Attributes And CSS Exercises</title>
-<!--  <link rel="stylesheet" href="css/box_css.css">-->
   <style>
+    * {
+      box-sizing: border-box;
+    }
     .invisible {
       visibility: hidden;
+    }
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+    img {
+      border: 6px solid lightslategray;
+    }
+    button {
+      margin-left:40%;
     }
   </style>
 </head>
 <body>
-<center><a href="#" id="toggler">Click Here</a></center>
+<center><a href="#" id="toggler">Click Here for more info</a></center>
 <p>States I have visited and what I have known:</p>
 
 <dl>
@@ -45,12 +58,53 @@
   <dt>Florida</dt>
   <dd class="invisible">Beautiful beaches and warm weather.</dd>
 </dl>
+<h1>Movies Watched</h1>
+<h3 id="movies-watched1">Devdas</h3>
+<ul id="Devdas">
+  <li>Historical</li>
+  <li>Romantic</li>
+  <li>Good Story</li>
+  <li>Emotional</li>
+</ul>
+<h3 id="movies-watched2">Three idiots</h3>
+<ul id="three-idiots">
+  <li>Funny</li>
+  <li>Good Theme</li>
+  <li>Good Story</li>
+  <li>Friendship</li>
+</ul>
+<h3 id="movies-watched3">Mohabatein</h3>
+<ul id="Mahabatein">
+  <li>Romantic</li>
+  <li>Emotional</li>
+  <li>Good Performance</li>
+  <li>Good plot</li>
+</ul>
+<button id="button" type="button">click me</button>
+<!--Picture Frame Bonus Exercise-->
+<div class="row">
+    <div class="column"><img id="first-image" src="images/pexels-lisett-kruusimäe-11474968.jpg" style="width:100%">
+      <button type="button" id="Swap1">Swap</button></div>
+    <div class="column"><img id="second-image" src="images/pexels-mathilde-langevin-10897656.jpg" style="width:100%">
+      <button type="button">Swap</button></div>
+    <div class="column"><img src="images/pexels-vinh-lâm-12800709.jpg" style="width:100%">
+      <button type="button">Swap</button></div>
+</div>
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous"></script>
 <script>
   $('#toggler').click(function(){$('dd').toggleClass("invisible")});
-  $('dt').click(function(){$(this).css('background-color', 'highlight')})
+  $('dt').click(function(){$(this).css('background-color', 'highlight')});
+  $('#button').click(function(){$('ul').children().css('background-color', 'yellow')});
+  $('h3').click(function(){$('ul').children().css('font-weight','bold')});
+  $('li').click(function(){$(this).parent().children().first().css('color', 'blue')});
+$('#Swap1').click(function(){
+  $('#first-image').attr('src', 'images/pexels-mathilde-langevin-10897656.jpg')
+})
 </script>
 </body>
 </html>

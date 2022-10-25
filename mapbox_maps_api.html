@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapbox</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #map{
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<h1>My First Mapbox Map!</h1>
+<div id="map"></div>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+  const key = "pk.eyJ1IjoicmFqaWJjaGF1ZGhhcnkyMDIwIiwiYSI6ImNsOW44bWduNjAxNWUzbnF6OHVtNHkyNXoifQ.uRK3ef5fsS4PvCu2L-M-Cg";
+
+  mapboxgl.accessToken = key;
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 15,
+    center: [-71.11974, 42.39512]
+  });
+
+  //Generate a map that shows the city with your favorite restaurant using geocoding
+  geocode("291 Main St, Everett, MA 02149", key).then(function(result) {
+    console.log(result);
+    map.setCenter(result);
+    map.setZoom(15);
+
+  //  Redraw the map for the above location at different soom levels.
+  map.setZoom(5);
+  map.setZoom(15);
+
+    //Add a marker of the exact location of the favorite restaurant
+    let marker = new mapboxgl.Marker().setLngLat([-71.06231, 42.41156]).addTo(map);
+    map.setZoom(11);
+
+    //Create a popup with the name of the restaurant
+    var popup = new mapboxgl.Popup().setHTML
+    ("<p>Zuzu Momo!</p>")
+    marker.setPopup(popup);
+    let myRestaurants = [
+      {rest: 'Sugar and spice',
+        location: [-71.11987, 42.38998],
+    },
+      {rest: "Himayalan Bistro",
+        location: [-71.14975, 42.28819],
+
+      },
+      {
+        rest: 'Nirvana The Taste of India',
+        location: [-71.12006, 42.38312],
+      }
+    ]
+
+    myRestaurants.forEach(function(restaurant){
+      let marker = new mapboxgl.Marker().setLngLat(restaurant.location).addTo(map);
+      map.setZoom(11);
+
+      var popup = new mapboxgl.Popup().setHTML
+      (restaurant.rest)
+      marker.setPopup(popup);
+
+    })
+
+  });
+
+
+
+
+
+</script>
+</body>
+</html>
