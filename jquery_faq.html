@@ -99,7 +99,7 @@
 <script>
   $('#toggler').click(function(){$('dd').toggleClass("invisible")});
   $('dt').click(function(){$(this).css('background-color', 'highlight')});
-  $('#button').click(function(){$('ul').children().css('background-color', 'yellow')});
+  $('#button').click(function(){$('ul').children().last().css('background-color', 'yellow')});
   $('h3').click(function(){$('ul').children().css('font-weight','bold')});
   $('li').click(function(){$(this).parent().children().first().css('color', 'blue')});
 $('#Swap1').click(function(){

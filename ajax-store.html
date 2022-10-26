@@ -2,11 +2,48 @@
 <!-- saved from url=(0059)https://java.codeup.com/examples/javascript/ajax-store.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Online Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .navbar{
+        }
+
+        .navLinks{
+            font-size: 12px;
+            color: white;
+            background-color: gray;
+            border: 1px darkolivegreen;
+            border-radius: 20px;
+            font-family: 'Fredericka the Great', cursive;
+            text-decoration: none;
+        }
+        #navbarSupportedContent{
+            /*width: 100%;*/
+            /*margin-bottom: 0;*/
+            padding-left: 200px;
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light img-fluid">
+    <div class="container" id="navbarSupportedContent">
+        <div class="navText centered fs-1">My Tool Store
+        <div class="row">
+            <div class="nav-item col-3">
+                <a class="active navLinks" aria-current="page" href="#">Home</a>
+            </div>
+            <div class="nav-item col-3">
+                <a class="navLinks" href="#">About Us</a>
+            </div>
+            <div class="nav-item col-3">
+                <a class="navLinks" href="#">Contact Us</a>
+            </div>
+            <div class="nav-item col-3">
+                <a class="navLinks" href="#" tabindex="-1" >Sign In!</a>
+            </div>
 
-<h1>My Tool Store</h1>
-
+        </div>
+    </div>
 <table id="products">
     <thead>
         <tr>
@@ -21,9 +58,12 @@
 <br>
 <button class="refresh">Refresh</button>
 
+    </div>
+</nav>
 
 <script src="./ajax-sotre_files/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script>
 (function() {
     "use strict";
@@ -42,7 +82,6 @@
 `});
         $(".refresh").click(function(){`run`});
         $('#insertProducts').html(newHTML);
-
         console.log(newHTML);
 
 

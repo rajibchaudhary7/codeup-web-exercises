@@ -136,8 +136,8 @@
      */
     for (let i = 1; i <= 5; i++) {
         console.log("Book # " + i);
-        console.log("Title: " + books[i-1].title);
-        console.log("Author: " + books[i-1].author.firstname + " " + books[i-1].author.lastname)
+        console.log(`Title: ${books[i-1].title}`);
+        console.log(`Author: ${books[i-1].author.firstname} ${books[i-1].author.lastname}`)
     }
 
     /**
