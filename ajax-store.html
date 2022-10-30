@@ -71,7 +71,8 @@
     let newHTML = "";
     let run = ($.get("data/inventory.json").done(function(data) {
         console.log(data);
-        data.forEach(function(tool){newHTML += `
+        data.forEach(function(tool){
+            newHTML += `
         <tr>
             <td>${tool.title}</td>
             <td>${tool.quantity}</td>
