@@ -100,8 +100,10 @@
         console.log(data);
     });
 
-    let marker = new mapboxgl.Marker().setLngLat([-71.0598, 42.3584]).addTo(map);
-    map.setZoom(12);
+    let marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat([-71.0598, 42.3584]).addTo(map);
+    map.setZoom(10);
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
         APPID: weatherKey,
         lat:    42.3584,
@@ -145,7 +147,8 @@
                 let lat = result[1];
                 console.log(lng);
                 console.log(lat);
-    let marker = new mapboxgl.Marker().setLngLat(result).addTo(map);
+    let marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
                     APPID: weatherKey,
                     lat:    lat,
@@ -176,12 +179,119 @@
                         }
                         $('#main').html(newHTML);
                     }
-                    fiveDayForecast(data);
+                   fiveDayForecast(data);
                 });
             })
         });
     }
     weatherBySearch();
+    function dragAndUpdate (){
+        map.on("moved", function() {
+            maker.setLngLat(map.getCenter())
+            onDragEnd()
+        });
+        function onDragEnd() {
+            let lngLat = marker.getLngLat();
+            let lng = lngLat.lng;
+            let lat = lngLat.lat;
+            console.log(lng);
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: weatherKey,
+                lat:    lat,
+                lon:   lng,
+                units: "imperial"
+            }).done(function(data) {
+                console.log('5 day forecast', data);
+                function fiveDayForecast(x) {
+                    let newArray = [];
+                    for (let i = 0; i < x.list.length; i++) {
+                        if(x.list[i].dt_txt.slice(-8) === '12:00:00') {
+                            newArray.push(x.list[i]);
+                        }
+                    }
+                    console.log(newArray);
+                    let newHTML = "";
+                    for (let i = 0; i < newArray.length; i++) {
+                        newHTML +=
+                            `<div class="weather">
+                    <div class="col1">${newArray[i].dt_txt.slice(0, 10)}</div>
+                    <div>${newArray[i].main.temp_min} F/${newArray[i].main.temp_max} F</div>
+                    <div>Description: ${newArray[i].weather[0].description}</div>
+                    <div>Humidity: ${newArray[i].main.humidity}</div>
+                    <div>Wind: ${newArray[i].wind.speed}</div>
+                    <div>Pressure: ${newArray[i].main.pressure}</div>
+                </div>`
+
+                    }
+                    $('#main').html(newHTML);
+                }
+                fiveDayForecast(data);
+        })
+    }
+    marker.on('dragend', onDragEnd);
+}
+// dragAndUpdate();
+//     function dragAndUpdate (){
+//         map.on("moved", function() {
+//             maker.setLngLat(map.getCenter())
+//             onDragEnd()
+//         });
+//         async function onDragEnd(e) {
+//             console.log(e);
+//             let lngLat;
+//             if (e.type == "dragend") {
+//                 lngLat = marker.getLngLat();
+//             }else if(e.type == "input"){
+//                 let address = $("#address").val();
+//                 console.log(address);
+//                 lngLat = await geocode(address, mapboxKey)
+//                 lngLat = {
+//                     lng: lngLat[0],
+//                     lat: lngLat[1]
+//                 }
+//                 console.log(lngLat);
+//             }
+//             let lng = lngLat.lng;
+//             let lat = lngLat.lat;
+//             console.log(lng);
+//             $.get("http://api.openweathermap.org/data/2.5/forecast", {
+//                 APPID: weatherKey,
+//                 lat:    lat,
+//                 lon:   lng,
+//                 units: "imperial"
+//             }).done(function(data) {
+//                 console.log('5 day forecast', data);
+//                 function fiveDayForecast(x) {
+//                     let newArray = [];
+//                     for (let i = 0; i < x.list.length; i++) {
+//                         if(x.list[i].dt_txt.slice(-8) === '12:00:00') {
+//                             newArray.push(x.list[i]);
+//                         }
+//                     }
+//                     console.log(newArray);
+//                     let newHTML = "";
+//                     for (let i = 0; i < newArray.length; i++) {
+//                         newHTML +=
+//                             `<div class="weather">
+//     <div class="col1">${newArray[i].dt_txt.slice(0, 10)}</div>
+//     <div>${newArray[i].main.temp_min} F/${newArray[i].main.temp_max} F</div>
+//     <div>Description: ${newArray[i].weather[0].description}</div>
+//     <div>Humidity: ${newArray[i].main.humidity}</div>
+//     <div>Wind: ${newArray[i].wind.speed}</div>
+//     <div>Pressure: ${newArray[i].main.pressure}</div>
+// </div>`
+//
+//                     }
+//                     $('#main').html(newHTML);
+//                 }
+//                 fiveDayForecast(data);
+//             })
+//         }
+//         marker.on('dragend', onDragEnd);
+//         $("#address").on("input", onDragEnd);
+//     }
+//     dragAndUpdate();
+
 </script>
 </body>
 </html>
