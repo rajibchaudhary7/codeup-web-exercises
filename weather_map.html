@@ -99,6 +99,7 @@
             .addTo(map);
         console.log(data);
     });
+    //👁👁Mapbox api fetches current weather with long and lat, centers the map and adds a marker
 
     let marker = new mapboxgl.Marker({
         draggable: true
@@ -111,7 +112,10 @@
         units: "imperial"
     }).done(function(data) {
         console.log('5 day forecast', data);
-     function fiveDayForecast(x) {
+
+        //Function to create an empty array
+
+        function fiveDayForecast(x) {
             let newArray = [];
             for (let i = 0; i < x.list.length; i++) {
                 if(x.list[i].dt_txt.slice(-8) === '12:00:00') {
@@ -119,6 +123,8 @@
                 }
             }
             console.log(newArray);
+
+            // //populates the array with current weather data
             let newHTML = "";
                 for (let i = 0; i < newArray.length; i++) {
                     newHTML +=
@@ -136,7 +142,11 @@
         }
         fiveDayForecast(data);
 });
-    function weatherBySearch() {
+
+    //Function to search the weather by receiving input from the user
+    //clicks find button after the user input received
+    //Geolocation of the user input to get long and lat
+    function weatherBySearch(e) {
         $('#button').click(function (e) {
             e.preventDefault();
             geocode($("#address").val(), mapboxKey).then(function (result) {
@@ -147,7 +157,11 @@
                 let lat = result[1];
                 console.log(lng);
                 console.log(lat);
+
+    //  adds a marker
     let marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+
+    //displays the current weather data on the popup
 
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
                     APPID: weatherKey,
@@ -184,8 +198,12 @@
             })
         });
     }
-    weatherBySearch();
-    function dragAndUpdate (){
+    // weatherBySearch();
+
+    //function to update the weather by drag button
+    //moves the the marker on center of map
+    //updates the weather with 5 day forecast
+    function dragAndUpdate (e){
         map.on("moved", function() {
             maker.setLngLat(map.getCenter())
             onDragEnd()
@@ -230,7 +248,7 @@
     }
     marker.on('dragend', onDragEnd);
 }
-// dragAndUpdate();
+dragAndUpdate();
 //     function dragAndUpdate (){
 //         map.on("moved", function() {
 //             maker.setLngLat(map.getCenter())
