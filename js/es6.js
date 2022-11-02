@@ -74,7 +74,7 @@ let names = [];
 // });
 users.forEach(user => emails.push(user.email));
 users.forEach(user => names.push(user.name));
-
+console.log(users);
 // TODO: replace `var` with `let` in the following declaration
 // var developers = [];
 // users.forEach(function(user) {
@@ -100,6 +100,7 @@ let list = '<ul>';
 // TODO: rewrite the following loop to use a for..of loop
 developers.forEach(function (developer) {
   for (let developer of developers) {
+    console.log(developer);
     // TODO: rewrite the assignment below to use template strings
 //   list += '<li>' + developer + '</li>';
 // });
