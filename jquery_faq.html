@@ -86,9 +86,9 @@
     <div class="column"><img id="first-image" src="images/pexels-lisett-kruusimäe-11474968.jpg" style="width:100%">
       <button type="button" id="Swap1">Swap</button></div>
     <div class="column"><img id="second-image" src="images/pexels-mathilde-langevin-10897656.jpg" style="width:100%">
-      <button type="button">Swap</button></div>
-    <div class="column"><img src="images/pexels-vinh-lâm-12800709.jpg" style="width:100%">
-      <button type="button">Swap</button></div>
+      <button type="button" id="Swap2">Swap</button></div>
+  <div class="column"><img id="third-image" src="images/pexels-vinh-lâm-12800709.jpg" style="width:100%">
+      <button type="button" id="Swap3">Swap</button></div>
 </div>
 
 
@@ -103,8 +103,11 @@
   $('h3').click(function(){$('ul').children().css('font-weight','bold')});
   $('li').click(function(){$(this).parent().children().first().css('color', 'blue')});
 $('#Swap1').click(function(){
-  $('#first-image').attr('src', 'images/pexels-mathilde-langevin-10897656.jpg')
+  $('#first-image').attr('src', 'images/pexels-mathilde-langevin-10897656.jpg'), $('#second-image').attr("src", "images/pexels-lisett-kruusimäe-11474968.jpg")
 })
+  $('#Swap3').click(function(){
+    $('#third-image').attr("src", "images/pexels-lisett-kruusimäe-11474968.jpg"), $('#second-image').attr("src", 'images/pexels-mathilde-langevin-10897656.jpg')
+  })
 </script>
 </body>
 </html>
