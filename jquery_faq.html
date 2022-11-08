@@ -102,16 +102,35 @@
   $('#button').click(function(){$('ul').children().last().css('background-color', 'yellow')});
   $('h3').click(function(){$('ul').children().css('font-weight','bold')});
   $('li').click(function(){$(this).parent().children().first().css('color', 'blue')});
-$('#Swap1').click(function(){
-  $('#first-image').attr('src', 'images/pexels-mathilde-langevin-10897656.jpg'), $('#second-image').attr("src", "images/pexels-lisett-kruusimäe-11474968.jpg")
-})
-  $('#Swap3').click(function(){
-    $('#third-image').attr("src", "images/pexels-lisett-kruusimäe-11474968.jpg"), $('#second-image').attr("src", 'images/pexels-mathilde-langevin-10897656.jpg')
-  })
+
+  $("#Swap1").on("click", function(){
+    let leftImage = $("#first-image").attr("src");
+    let centerImage = $("#second-image").attr("src");
+      $("#first-image").attr("src", centerImage);
+      $("#second-image").attr("src", leftImage);
+    });
+
+  $("#Swap3").on("click", function(){
+    let centerImage = $("#second-image").attr("src");
+    let lastImage = $("#third-image").attr("src");
+    $("#second-image").attr("src", lastImage);
+    $("#third-image").attr("src", centerImage);
+  });
+  $('#Swap2').click(function(){
+    let randomNumber = Math.floor(Math.random() * 2);
+    let leftImage = $("#first-image").attr("src");
+    let centerImage = $("#second-image").attr("src");
+    let lastImage = $("#third-image").attr("src");
+    if (randomNumber === 0) {
+      $("#second-image").attr("src", leftImage);
+      $("#first-image").attr("src", centerImage);
+    } else {
+      $("#second-image").attr("src", lastImage);
+      $("#third-image").attr("src", centerImage);
+    }
+
+
+   })
 </script>
 </body>
 </html>
-let notJavascript = users.filter(function(ele))
-{
-return ele.langugages !== "javascript"
-});
